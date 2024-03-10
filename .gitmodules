@@ -1,0 +1,12 @@
+[submodule "DatasetAugmentation"]
+	path = DatasetAugmentation
+	url = https://github.com/HarlockOfficial/DatasetAugmentation.git
+[submodule "EEGClassificator"]
+	path = EEGClassificator
+	url = https://github.com/HarlockOfficial/EEGClassificator.git
+[submodule "VirtualController"]
+	path = VirtualController
+	url = https://github.com/HarlockOfficial/VirtualController.git
+[submodule "WebsocketServer"]
+	path = WebsocketServer
+	url = https://github.com/HarlockOfficial/WebSocketServer.git
