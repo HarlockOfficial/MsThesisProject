@@ -10,3 +10,6 @@
 [submodule "WebsocketServer"]
 	path = WebsocketServer
 	url = https://github.com/HarlockOfficial/WebSocketServer.git
+[submodule "MsThesisDocument"]
+	path = MsThesisDocument
+	url = https://github.com/HarlockOfficial/MsThesisDocument.git
