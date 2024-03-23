@@ -23,6 +23,12 @@ if __name__ == '__main__':
         log.close()
         err.close()
         print('Training finished')
+    elif action.lower().strip() == 'start_controller':
+        import start_virtual_controller
+        start_virtual_controller.main(sys.argv[2], sys.argv[3], sys.argv[4])
+    elif action.lower().strip() == 'ws':
+        import start_web_socket
+        start_web_socket.main(*sys.argv[2:])
     else:
         print('Usage: python3.11 main.py <augment|train>')
         exit(1)
