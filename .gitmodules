@@ -16,3 +16,6 @@
 [submodule "MsThesisPresentation"]
 	path = MsThesisPresentation
 	url = https://github.com/HarlockOfficial/MsThesisPresentation.git
+[submodule "PrettyPrintConfusionMatrix"]
+	path = PrettyPrintConfusionMatrix
+	url = https://github.com/HarlockOfficial/PrettyPrintConfusionMatrix.git
