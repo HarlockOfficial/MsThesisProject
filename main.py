@@ -15,6 +15,14 @@ if __name__ == '__main__':
         log.close()
         err.close()
         print('Augmentation finished')
+    elif action.lower().strip() == 'data_augment_train_stochastic':
+        t = datetime.datetime.now().strftime('%Y_%m_%d_%H_%M_%S')
+        log = open('DatasetAugmentation/logs/stochastic_approach_log_' + t + '.log', 'w')
+        err = open('DatasetAugmentation/logs/stochastic_approach_err_' + t + '.log', 'w')
+        process = subprocess.run(['.venv/bin/python3.10', './start_augmentation_train_stochastic.py'], stdout=log, stderr=err)
+        log.close()
+        err.close()
+        print('Augmentation finished')
     elif action.lower().strip() == 'data_augment_test':
         t = datetime.datetime.now().strftime('%Y_%m_%d_%H_%M_%S')
         log = open('DatasetAugmentation/logs/test_log_' + t + '.log', 'w')
