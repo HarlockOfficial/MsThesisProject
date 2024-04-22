@@ -47,6 +47,14 @@ if __name__ == '__main__':
         log.close()
         err.close()
         print('Testing finished')
+    elif action.lower().strip() == 'network_confusion_matrix_plot':
+        t = datetime.datetime.now().strftime('%Y_%m_%d_%H_%M_%S')
+        log = open('EEGClassificator/logs/confusion_matrix_log_' + t + '.log', 'w')
+        err = open('EEGClassificator/logs/confusion_matrix_err_' + t + '.log', 'w')
+        process = subprocess.run(['.venv/bin/python3.10', './start_classifier_confusion_matrix_plot.py', *sys.argv[2:]], stdout=log, stderr=err)
+        log.close()
+        err.close()
+        print('Confusion matrix plot finished')
     elif action.lower().strip() == 'start_controller':
         import start_virtual_controller
         start_virtual_controller.main(sys.argv[2], sys.argv[3], sys.argv[4])
