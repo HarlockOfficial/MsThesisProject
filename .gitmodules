@@ -19,3 +19,6 @@
 [submodule "PrettyPrintConfusionMatrix"]
 	path = PrettyPrintConfusionMatrix
 	url = https://github.com/HarlockOfficial/PrettyPrintConfusionMatrix.git
+[submodule "EEGCollector"]
+	path = EEGCollector
+	url = https://github.com/HarlockOfficial/EEGCollector.git
