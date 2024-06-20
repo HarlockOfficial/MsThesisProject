@@ -1,0 +1,19 @@
+BootStrap: docker
+From: python:3.10.12
+
+%post
+apt-get update
+apt-get dist-upgrade -y
+apt-get install git -y
+cd /
+git clone --recurse-submodules -j8 https://github.com/HarlockOfficial/MsThesisProject.git
+cd /MsThesisProject
+pip install -r requirements.txt
+
+%runscript
+exec python3 /MsThesisProject/main.py {{command}} {{args}}
+
+%labels
+Author: Francesco Moschella
+Version: 1.0
+Company: University of Camerino

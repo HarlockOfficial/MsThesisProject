@@ -1,4 +1,5 @@
 import datetime
+import os
 import subprocess
 import sys
 
@@ -9,6 +10,8 @@ if __name__ == '__main__':
     action = sys.argv[1]
     if action.lower().strip() == 'data_augment_train':
         t = datetime.datetime.now().strftime('%Y_%m_%d_%H_%M_%S')
+        if not os.path.exists('DatasetAugmentation/logs'):
+            os.makedirs('DatasetAugmentation/logs')
         log = open('DatasetAugmentation/logs/log_' + t + '.log', 'w')
         err = open('DatasetAugmentation/logs/err_' + t + '.log', 'w')
         process = subprocess.run(['.venv/bin/python3.10', './start_augmentation_train.py'], stdout=log, stderr=err)
@@ -16,6 +19,8 @@ if __name__ == '__main__':
         err.close()
         print('Augmentation finished')
     elif action.lower().strip() == 'data_augment_train_stochastic':
+        if not os.path.exists('DatasetAugmentation/logs'):
+            os.makedirs('DatasetAugmentation/logs')
         t = datetime.datetime.now().strftime('%Y_%m_%d_%H_%M_%S')
         log = open('DatasetAugmentation/logs/stochastic_approach_log_' + t + '.log', 'w')
         err = open('DatasetAugmentation/logs/stochastic_approach_err_' + t + '.log', 'w')
@@ -24,6 +29,8 @@ if __name__ == '__main__':
         err.close()
         print('Augmentation finished')
     elif action.lower().strip() == 'data_augment_test':
+        if not os.path.exists('DatasetAugmentation/logs'):
+            os.makedirs('DatasetAugmentation/logs')
         t = datetime.datetime.now().strftime('%Y_%m_%d_%H_%M_%S')
         log = open('DatasetAugmentation/logs/test_log_' + t + '.log', 'w')
         err = open('DatasetAugmentation/logs/test_err_' + t + '.log', 'w')
@@ -32,6 +39,8 @@ if __name__ == '__main__':
         err.close()
         print('Augmentation test finished')
     elif action.lower().strip() == 'network_train':
+        if not os.path.exists('EEGClassificator/logs'):
+            os.makedirs('EEGClassificator/logs')
         t = datetime.datetime.now().strftime('%Y_%m_%d_%H_%M_%S')
         log = open('EEGClassificator/logs/log_' + t + '.log', 'w')
         err = open('EEGClassificator/logs/err_' + t + '.log', 'w')
@@ -40,6 +49,8 @@ if __name__ == '__main__':
         err.close()
         print('Training finished')
     elif action.lower().strip() == 'network_test':
+        if not os.path.exists('EEGClassificator/logs'):
+            os.makedirs('EEGClassificator/logs')
         t = datetime.datetime.now().strftime('%Y_%m_%d_%H_%M_%S')
         log = open('EEGClassificator/logs/test_log_' + t + '.log', 'w')
         err = open('EEGClassificator/logs/test_err_' + t + '.log', 'w')
@@ -48,6 +59,8 @@ if __name__ == '__main__':
         err.close()
         print('Testing finished')
     elif action.lower().strip() == 'network_confusion_matrix_plot':
+        if not os.path.exists('EEGClassificator/logs'):
+            os.makedirs('EEGClassificator/logs')
         t = datetime.datetime.now().strftime('%Y_%m_%d_%H_%M_%S')
         log = open('EEGClassificator/logs/confusion_matrix_log_' + t + '.log', 'w')
         err = open('EEGClassificator/logs/confusion_matrix_err_' + t + '.log', 'w')
