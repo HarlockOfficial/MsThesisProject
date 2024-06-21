@@ -1,0 +1,17 @@
+#!/bin/bash
+
+#SBATCH --job-name EEG_train
+#SBATCH --output output_%j.txt
+#SBATCH --error errors_%j.txt
+#SBATCH --mail-user michela.quadrini@gmail.com
+#SBATCH --mail-type ALL
+#SBATCH --ntasks 1
+#SBATCH --partition allgroups
+#SBATCH --time 999:00:00
+#SBATCH --mem 500G
+#SBATCH --gres=gpu:a40
+
+
+cd /nfsd/dsl/carlo/michela/MsThesisProject
+
+srun run.sh

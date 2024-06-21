@@ -1,19 +1,18 @@
 BootStrap: docker
-From: python:3.10.12
+From: nvidia/cuda:12.1.0-cudnn8-devel-ubuntu22.04
 
 %post
-apt-get update
-apt-get dist-upgrade -y
-apt-get install git -y
-cd /
-git clone --recurse-submodules -j8 https://github.com/HarlockOfficial/MsThesisProject.git
-cd /MsThesisProject
-pip install -r requirements.txt
-
-%runscript
-exec python3 /MsThesisProject/main.py {{command}} {{args}}
+    apt-get update
+    apt-get dist-upgrade -y
+    apt-get install git python3.10-dev python3-pip -y
+    cd /
+    git clone --recurse-submodules -j8 https://github.com/HarlockOfficial/MsThesisProject.git
+    cd /MsThesisProject
+    pip install -r requirements.txt
+    cd /
+    rm -r /MsThesisProject
 
 %labels
-Author: Francesco Moschella
-Version: 1.0
-Company: University of Camerino
+    Author: Francesco Moschella
+    Version: 1.0
+    Company: University of Camerino
