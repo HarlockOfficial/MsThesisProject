@@ -44,7 +44,7 @@ if __name__ == '__main__':
         t = datetime.datetime.now().strftime('%Y_%m_%d_%H_%M_%S')
         log = open('EEGClassificator/logs/log_' + t + '.log', 'w')
         err = open('EEGClassificator/logs/err_' + t + '.log', 'w')
-        process = subprocess.run(['.venv/bin/python3.10', './start_classifier_train.py'], stdout=log, stderr=err)
+        process = subprocess.run(['.venv/bin/python3.10', './start_classifier_train.py', *sys.argv[2:]], stdout=log, stderr=err)
         log.close()
         err.close()
         print('Training finished')
