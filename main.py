@@ -69,6 +69,17 @@ if __name__ == '__main__':
         log.close()
         err.close()
         print('Testing with GAN finished')
+    elif action.lower().strip() == 'network_test_robustness':
+        if not os.path.exists('EEGClassificator/logs'):
+            os.makedirs('EEGClassificator/logs')
+        t = datetime.datetime.now().strftime('%Y_%m_%d_%H_%M_%S')
+        log = open('EEGClassificator/logs/test_log_robustness_' + t + '.log', 'w')
+        err = open('EEGClassificator/logs/test_err_robustness_' + t + '.log', 'w')
+        process = subprocess.run(['.venv/bin/python3.10', './start_classifier_test_robustness.py', *sys.argv[2:]], stdout=log,
+                                 stderr=err)
+        log.close()
+        err.close()
+        print('Testing robustness finished')
     elif action.lower().strip() == 'network_classification_time_test':
         if not os.path.exists('EEGClassificator/logs'):
             os.makedirs('EEGClassificator/logs')
