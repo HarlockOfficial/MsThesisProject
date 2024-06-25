@@ -58,6 +58,27 @@ if __name__ == '__main__':
         log.close()
         err.close()
         print('Testing finished')
+    elif action.lower().strip() == 'network_test_gan':
+        if not os.path.exists('EEGClassificator/logs'):
+            os.makedirs('EEGClassificator/logs')
+        t = datetime.datetime.now().strftime('%Y_%m_%d_%H_%M_%S')
+        log = open('EEGClassificator/logs/test_log_gan_' + t + '.log', 'w')
+        err = open('EEGClassificator/logs/test_err_gan_' + t + '.log', 'w')
+        process = subprocess.run(['.venv/bin/python3.10', './start_classifier_test_gan.py', *sys.argv[2:]], stdout=log,
+                                 stderr=err)
+        log.close()
+        err.close()
+        print('Testing with GAN finished')
+    elif action.lower().strip() == 'network_classification_time_test':
+        if not os.path.exists('EEGClassificator/logs'):
+            os.makedirs('EEGClassificator/logs')
+        t = datetime.datetime.now().strftime('%Y_%m_%d_%H_%M_%S')
+        log = open('EEGClassificator/logs/classification_time_log_' + t + '.log', 'w')
+        err = open('EEGClassificator/logs/classification_time_err_' + t + '.log', 'w')
+        process = subprocess.run(['.venv/bin/python3.10', './start_classifier_time_test.py', *sys.argv[2:]], stdout=log, stderr=err)
+        log.close()
+        err.close()
+        print('Testing classification time finished')
     elif action.lower().strip() == 'network_confusion_matrix_plot':
         if not os.path.exists('EEGClassificator/logs'):
             os.makedirs('EEGClassificator/logs')
