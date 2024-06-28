@@ -106,6 +106,11 @@ if __name__ == '__main__':
     elif action.lower().strip() == 'ws':
         import start_web_socket
         start_web_socket.main(*sys.argv[2:])
+    elif action.lower().strip() == 'start_receiver':
+        import EEGCollector.eego_sdk.Receiver
+        path_to_classificator = sys.argv[2]
+        ws_address = sys.argv[3]
+        EEGCollector.eego_sdk.Receiver.main(path_to_classificator, ws_address)
     else:
         print('Usage: python3.11 main.py <data_augment_train|data_augment_test|network_train|network_test|start_controller|ws> <args>')
         exit(1)
