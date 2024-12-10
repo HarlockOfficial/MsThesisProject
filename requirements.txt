@@ -103,7 +103,7 @@ pytorch-lightning==2.2.1
 pytz==2024.1
 PyWavelets==1.5.0
 PyYAML==6.0.1
-requests==2.31.0
+requests==2.32.0
 rich==13.7.1
 scikit-learn>=1.4.2
 scipy==1.12.0
